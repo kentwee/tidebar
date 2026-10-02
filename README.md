@@ -1,66 +1,70 @@
 # Tidebar
 
-一条常驻桌面角落的小胶囊：平时只占一行，鼠标移上去展开成完整看板，看电影、打游戏全屏时自动躲开。
+**English** | [简体中文](README.zh-CN.md)
 
-给同时开着好几个 AI 智能体窗口的人用：CPU、内存、网络、文件同步，还有 Claude Code 的用量，一眼看完。
+A tiny capsule that lives in the corner of your desktop. It stays one line tall, expands into a full dashboard when you hover over it, and gets out of the way when you go fullscreen for a movie or a game.
 
-**Mac 和 Windows 都是原生程序，零安装：下载、解压、双击就能用。**
+Built for people who keep several AI agent windows open at once: CPU, memory, network, file sync and your Claude Code usage, all at a glance.
 
-<!-- 截图 / 动图放这里 -->
+**Native on both macOS and Windows. Nothing to install: download, unzip, double-click.**
 
-## 下载
+<!-- screenshots / GIF go here -->
 
-到 [Releases](../../releases/latest) 页面下载最新版：
+## Download
 
-| 系统 | 文件 | 要求 |
+Grab the latest version from the [Releases](../../releases/latest) page:
+
+| System | File | Requirements |
 |---|---|---|
-| Windows | `Tidebar-windows.zip` | Windows 10 / 11（系统自带的 .NET Framework 4.8 即可，不用另装任何东西） |
-| macOS | `Tidebar-mac.zip` | macOS 13 及以上，Apple 芯片和 Intel 都支持 |
+| Windows | `Tidebar-windows.zip` | Windows 10 / 11 (uses the built-in .NET Framework 4.8, nothing extra to install) |
+| macOS | `Tidebar-mac.zip` | macOS 13 or later, Apple silicon and Intel |
 
-### 第一次打开会被系统拦一下（正常现象）
+### The first launch gets blocked (this is expected)
 
-这个项目没有花钱买开发者证书，所以第一次运行时系统会提醒你：
+The app is not signed with a paid developer certificate, so your system will warn you the first time:
 
-- **Windows**：弹出「Windows 已保护你的电脑」→ 点「更多信息」→「仍要运行」。
-- **macOS**：提示「无法验证开发者」→ 打开「系统设置 → 隐私与安全性」，往下拉找到 Tidebar，点「仍要打开」。
+- **Windows**: "Windows protected your PC" → click **More info** → **Run anyway**.
+- **macOS**: "cannot verify the developer" → open **System Settings → Privacy & Security**, scroll down to Tidebar and click **Open Anyway**.
 
-代码全部公开在这个仓库里，可以自己检查，也可以自己编译（见下文）。
+All the source code is in this repository, so you can read it or build it yourself (see below).
 
-## 能看到什么
+## What it shows
 
-| 模块 | 内容 | 默认 |
+| Module | What you see | Default |
 |---|---|---|
-| 系统 | CPU、内存（以及最占内存的程序）、系统盘剩余空间、开机时长 | 开 |
-| 显卡（Windows） | NVIDIA 显卡的占用、温度、显存（没有 N 卡自动隐藏） | 自动 |
-| 网络 | 实时网速、本次流量、网络延迟 | 开 |
-| Claude Code | 活跃窗口数、今日 / 5 小时用量；Mac 版另有本周账本和每个窗口的上下文红绿灯 | 装了才显示 |
-| Syncthing | 同步进度、对端设备在线状态、一键手动同步 | 装了才显示 |
-| Antigravity（Mac） | 任务在跑 / 等你处理 / 空闲 | 装了才显示 |
+| System | CPU, memory (plus the app using the most), free space on the system drive, uptime | On |
+| GPU (Windows) | NVIDIA GPU load, temperature, VRAM (hidden automatically if there is no NVIDIA card) | Auto |
+| Network | Live speed, traffic this session, latency | On |
+| Claude Code | Active windows, today / 5-hour usage; on macOS also a weekly ledger and a context-size traffic light for each window | Shown if installed |
+| Syncthing | Sync progress, which devices are online, one-click rescan | Shown if installed |
+| Antigravity (macOS) | Tasks running / waiting for you / idle | Shown if installed |
 
-所有数据只在你自己电脑上读取和显示，**不联网上传任何东西**。唯一的联网动作是测网络延迟（默认访问 `cp.cloudflare.com/generate_204`，可在配置里改掉或关掉）。
+Everything is read and displayed locally on your own machine. **Nothing is uploaded anywhere.** The only network request is the latency check (by default to `cp.cloudflare.com/generate_204`), which you can change or turn off in the config.
 
-## 设置
+The interface is currently in Chinese; English UI is planned.
 
-右键胶囊（Mac 点菜单）→「打开配置文件」，改完点「重新加载配置」。
+## Settings
 
-- Windows：`%APPDATA%\Tidebar\config.ini`
-- macOS：`~/Library/Application Support/Tidebar/config.json`
+Right-click the capsule (on macOS, use the menu) → **Open config file**, edit, then choose **Reload config**.
 
-每个模块都能单独关掉；网络延迟可以换测速地址、指定走哪个本机代理。
+- Windows: `%APPDATA%\Tidebar\config.ini`
+- macOS: `~/Library/Application Support/Tidebar/config.json`
 
-## 自己编译
+Every module can be turned off on its own. For latency you can change the test URL or route it through a local proxy.
 
-- **Windows**：不用装 Visual Studio，用系统自带的编译器：
+## Build it yourself
+
+- **Windows**: no Visual Studio needed, it uses the compiler that ships with Windows:
   ```powershell
   powershell -ExecutionPolicy Bypass -File windows\build.ps1
   ```
-  产物在 `windows\dist\Tidebar.exe`。
-- **macOS**：装好 Xcode 命令行工具后：
+  Output: `windows\dist\Tidebar.exe`.
+- **macOS**: with the Xcode command line tools installed:
   ```bash
   cd mac && ./build.sh
   ```
-  产物在 `mac/dist/Tidebar.app`。
+  Output: `mac/dist/Tidebar.app`.
 
-## 许可
+## License
 
 MIT
