@@ -8,7 +8,14 @@ Built for people who keep several AI agent windows open at once: CPU, memory, ne
 
 **Native on both macOS and Windows. Nothing to install: download, unzip, double-click.**
 
-<!-- screenshots / GIF go here -->
+<p align="center">
+  <img src="docs/capsule.png" alt="Collapsed capsule" width="470"><br>
+  <sub>Most of the time: one line in the corner</sub>
+</p>
+<p align="center">
+  <img src="docs/expanded.png" alt="Expanded dashboard" width="430"><br>
+  <sub>Hover to expand (Windows, private names masked)</sub>
+</p>
 
 ## Download
 

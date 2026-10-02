@@ -8,7 +8,14 @@
 
 **Mac 和 Windows 都是原生程序，零安装：下载、解压、双击就能用。**
 
-<!-- 截图 / 动图放这里 -->
+<p align="center">
+  <img src="docs/capsule.png" alt="收起时的胶囊" width="470"><br>
+  <sub>平时：角落里的一行</sub>
+</p>
+<p align="center">
+  <img src="docs/expanded.png" alt="展开后的看板" width="430"><br>
+  <sub>鼠标移上去展开（Windows 版，个人设备名已遮挡）</sub>
+</p>
 
 ## 下载
 
