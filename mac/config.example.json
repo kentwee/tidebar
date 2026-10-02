@@ -1,0 +1,26 @@
+{
+  "modules": {
+    "system": "on",
+    "latency": "on",
+    "claude": "auto",
+    "antigravity": "auto",
+    "syncthing": "auto"
+  },
+  "latency": {
+    "url": "http://cp.cloudflare.com/generate_204",
+    "label": "网络延迟"
+  },
+  "claude": {
+    "reset_weekday": 5,
+    "reset_hour": 11,
+    "workspace_root": ""
+  },
+  "syncthing": {
+    "folder": "auto"
+  },
+  "window": {
+    "x": null,
+    "y": null,
+    "hover_expand": true
+  }
+}

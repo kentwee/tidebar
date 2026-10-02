@@ -1,0 +1,9 @@
+dist/
+*.exe
+*.zip
+*.log
+.DS_Store
+ledger*.json
+state.json
+*calibration*.json
+_扫描规则*
